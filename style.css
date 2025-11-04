@@ -1,133 +1,112 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<title>Happy Birthday Pihu 🎂</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<link rel="stylesheet" href="style.css">
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bts-purple:#52327D;--soft-pink:#F8BBD0;--light-lavender:#E1BEE7;--text-dark:#4A148C;--text-light:#6a5a7f}
+body{font-family:'Poppins',sans-serif;background:radial-gradient(ellipse at bottom,var(--light-lavender) 0%,var(--soft-pink) 100%);height:100vh;overflow-y:auto;color:var(--text-dark)}
+h1,h2,h3,h4,h5{font-family:'Pacifico',cursive}
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-</head>
+.gift-container{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;cursor:pointer;animation:pulse 2s infinite;position:relative;z-index:10}
+.gift-container h1{font-size:3rem;color:var(--bts-purple);text-shadow:2px 2px 5px rgba(0,0,0,0.1)}
+.gift-container p{font-family:'Poppins',sans-serif;color:var(--text-light);margin-top:10px}
 
-<body>
+.gift{position:relative;width:150px;height:100px;margin-bottom:30px}
+.gift-lid{width:170px;height:30px;background:var(--soft-pink);position:absolute;left:-10px;top:0;border-radius:5px;box-shadow:0 2px 5px rgba(0,0,0,0.2)}
+.gift-lid::before{content:'';position:absolute;width:30px;height:50px;background:#fce4ec;left:50%;transform:translateX(-50%);top:-20px;border-radius:15px 15px 0 0}
+.gift-box{width:150px;height:100px;background:var(--bts-purple);position:absolute;top:20px;border-radius:5px;box-shadow:0 5px 15px rgba(0,0,0,0.2)}
+.gift-box::before{content:'';position:absolute;width:20px;height:100px;background:#7C4DFF;left:50%;transform:translateX(-50%)}
 
-<div class="hearts-bg"></div>
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
 
-<audio id="bgm" loop>
-  <source src="happy-birthday.mp3" type="audio/mp3" />
-</audio>
+#music-control{position:fixed;top:20px;right:20px;width:40px;height:40px;background:rgba(255,255,255,0.5);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:100;box-shadow:0 2px 5px rgba(0,0,0,0.2);color:var(--bts-purple)}
 
-<div id="music-control">
-  <i class="fas fa-volume-up"></i>
-</div>
+.birthday_inner__modal{width:500px;position:absolute;top:50%;left:0;right:0;margin:auto;transform:translateY(-50%) scale(0);background:white;border-radius:20px;box-shadow:0px 3px 10px rgba(0,0,0,0.1);padding:40px 40px 100px 40px;text-align:center;transition:0.4s cubic-bezier(0.68,-0.55,0.27,1.55);z-index:5}
+.modal_image{position:absolute;left:0;right:0;top:0;transform:translateY(-60%)}
+.modal_image img{width:120px;height:120px;object-fit:cover;border-radius:50%;border:5px solid white;box-shadow:0 0 10px rgba(0,0,0,0.2)}
+.birthday_inner__modal h1{color:var(--bts-purple)}
+.birthday_inner__modal p{font-family:'Poppins',sans-serif;font-size:15px;color:#6d5b6c;margin:10px 0}
+.birthday_inner__modal button{background:var(--bts-purple);color:white;border:none;width:100%;font-size:22px;padding:20px;cursor:pointer;border-bottom-left-radius:20px;border-bottom-right-radius:20px;position:absolute;bottom:0;left:0;font-family:'Pacifico',cursive}
 
-<div class="gift-container">
-  <div class="gift">
-    <div class="gift-lid"></div>
-    <div class="gift-box"></div>
-  </div>
-  <h1>A Surprise for you, Pihu!</h1>
-  <p>Click the gift to open</p>
-</div>
+.birthday_inner__stage{width:500px;position:absolute;top:50%;left:0;right:0;margin:auto;text-align:center;transform:translateY(-50%);display:none}
+.birthday_inner__stage h1{color:var(--bts-purple);font-size:3rem}
+.birthday_inner__stage h2{font-family:'Poppins',sans-serif;font-size:15px;color:var(--text-light);margin-top:5px}
+.birthday_inner__stage button,.startagain{background:var(--bts-purple);color:white;border:none;border-radius:30px;padding:10px 30px;font-size:22px;cursor:pointer;font-family:'Pacifico',cursive;box-shadow:0 3px 5px rgba(0,0,0,0.2);transition:transform 0.2s}
+.startagain{background:#c7c7c7;font-size:16px;padding:8px 20px;display:inline-block}
+.stage1 img.intro{width:350px;margin-bottom:20px}
 
-<div class="birthday" style="display:none;">
-  <div class="birthday_inner">
+.mix{margin-top:60px;position:relative;height:250px}
+.mix_bowl{position:absolute;bottom:0;left:50%;transform:translateX(-50%)}
+.mix_bowl img{width:240px}
+.mix_spoon{position:absolute;top:0;left:50%;transform-origin:bottom right}
+.move{animation:mix 1.2s ease-in-out}
 
-    <div class="birthday_inner__modal">
-      <div class="modal_image">
-        <img src="images/pihu1.jpg" />
-      </div>
-      <h1></h1>
-      <p></p>
-      <button>Continue</button>
-    </div>
+.oven img{width:280px}
+.tin img{width:90px}
 
-    <div class="birthday_inner__stage stage1" style="display:block;">
-      <img class="intro" src="images/cake.png" />
-      <button class="start">Let’s bake a cake as sweet as your Birthday!</button>
-    </div>
+.cakemake{margin-top:240px}
 
-    <div class="birthday_inner__stage stage2">
-      <h1>The Recipe for Pihu</h1>
-      <h2>Mix in all the sweet moments and happy memories we share.</h2>
-      <div class="mix">
-        <div class="mix_bowl"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/bowl.png" /></div>
-        <div class="mix_spoon"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/spoon.png" /></div>
-      </div>
-      <button class="mixer">Mix it!</button>
-    </div>
+.sponge,.base{height:40px;border-radius:6px;margin:-6px auto;background:#ffd296}
+.filling{height:10px;border-radius:6px;margin:-4px auto}
 
-    <div class="birthday_inner__stage stage3">
-      <h1>Warmth & Wishes</h1>
-      <h2>Baking with all the love and warmth you bring into our lives.</h2>
-      <div class="oven"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/oven.png" /></div>
-      <div class="tin"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/tin.png" /></div>
-    </div>
+.candle{position:relative;height:100px;margin-bottom:-10px}
+.candle img{height:100px}
+.flame{position:absolute;width:15px;height:30px;background:#ffda78;border-radius:50% 50% 50% 50%/60%60%40%40%;top:-15px;left:50%;transform:translateX(-50%);animation:flicker 1.5s infinite;opacity:0}
+.flame.in{opacity:1;transition:opacity .5s}
 
-    <div class="birthday_inner__stage stage4">
-      <h1>Time to Add the Sparkle</h1>
-      <h2>Layer the cake with all your best qualities!</h2>
+.options{display:flex;justify-content:center;gap:30px}
+.options h3{color:var(--bts-purple)}
+.options h4{font-family:'Poppins',sans-serif;font-size:14px;margin-top:5px;color:var(--text-light)}
+.item_inner{width:50px;height:50px;border-radius:8px;border:2px solid rgba(0,0,0,.07);cursor:pointer}
+.inactive{opacity:.4;pointer-events:none}
 
-      <div class="options">
-        <div class="sponges inactive">
-          <h3>Layers of...</h3>
-          <h5><span>0</span>/5</h5>
-          <div class="item"><div class="item_inner vanilla"></div><h4>Laughter</h4></div>
-          <div class="item"><div class="item_inner strawberry"></div><h4>Kindness</h4></div>
-          <div class="item"><div class="item_inner fruit"></div><h4>Adventure</h4></div>
-        </div>
+.item_inner.vanilla{background:#ffd296}
+.item_inner.strawberry{background:#ff99a3}
+.item_inner.fruit{background:#d5ccb2}
+.item_inner.jam{background:#e75656}
+.item_inner.cream{background:#ffffff}
+.item_inner.choc{background:#9f3d28}
+.item_inner.lemon{background:#e8e086}
 
-        <div class="fillings">
-          <h3>Fill with...</h3>
-          <h5><span>0</span>/6</h5>
-          <div class="item"><div class="item_inner jam"></div><h4>Love</h4></div>
-          <div class="item"><div class="item_inner cream"></div><h4>Joy</h4></div>
-          <div class="item"><div class="item_inner choc"></div><h4>Sweet Memories</h4></div>
-          <div class="item"><div class="item_inner lemon"></div><h4>Sunshine</h4></div>
-        </div>
-      </div>
+.sponge-vanilla{background:#ffd296}
+.sponge-strawberry{background:#ff99a3}
+.sponge-fruit{background:#d5ccb2}
+.filling-jam{background:#e75656}
+.filling-cream{background:#ffffff}
+.filling-choc{background:#9f3d28}
+.filling-lemon{background:#e8e086}
 
-      <div class="cakemake"><div class="base"></div></div>
-      <div class="startagain">Start again</div>
-      <button class="add">Add the final touch!</button>
-    </div>
+.final_screen{position:absolute;top:0;left:0;right:0;bottom:0;background:#fff;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:20;padding:20px}
+.final_screen h1{color:var(--bts-purple);font-size:4vw}
 
-  </div>
-</div>
+.slideshow{margin:20px 0;display:flex;gap:15px;justify-content:center;flex-wrap:wrap}
+.slideshow img{width:150px;height:150px;object-fit:cover;border-radius:12px;box-shadow:0 4px 15px rgba(82,50,125,.4);transform:scale(0);animation:pop-in .5s forwards;border:4px solid white}
 
-<div class="final_screen" style="display:none;">
-  <h1>Happy Birthday, Dearest Pihu!</h1>
-  <div class="balloons"></div>
+.final-message{background:#f3e5f5;padding:20px;border-radius:15px;max-width:600px}
+.final-message h2{color:var(--bts-purple)}
+.final-message p{font-family:'Poppins',sans-serif;margin-top:15px;font-size:16px;color:#6d5b6c;line-height:1.6}
 
-  <div class="slideshow">
-    <img src="images/pihu1.jpg" class="slide" style="display:none;">
-    <img src="images/pihu2.jpg" class="slide" style="display:none;">
-    <img src="images/pihu3.jpg" class="slide" style="display:none;">
-    <img src="images/pihu4.jpg" class="slide" style="display:none;">
-    <img src="images/pihu5.jpg" class="slide" style="display:none;">
-  </div>
+#replay{margin-top:10px;background:var(--bts-purple);color:#fff;border:none;border-radius:30px;padding:10px 26px;font-size:18px;cursor:pointer;font-family:'Pacifico',cursive}
 
-  <div class="final-message">
-    <h2>A little note for you...</h2>
-    <p>
-      Pihu, wishing you the happiest of birthdays.
-      Thank you for all the laughter, the support, and for just being you.
-      May your day be as bright and wonderful as you are.
-      I hope this year brings you new experiences, happiness, and the confidence to chase every goal.
-      Love you always. Borahae. 💜
-    </p>
-  </div>
+@keyframes mix{0%{transform:translate(-20px,-10px) rotate(0deg) scale(1)}25%{transform:translate(-40px,10px) rotate(-45deg) scale(1.05)}50%{transform:translate(0px,25px) rotate(-90deg) scale(1)}75%{transform:translate(25px,10px) rotate(-45deg) scale(1.05)}100%{transform:translate(-20px,-10px) rotate(0deg) scale(1)}}
+@keyframes flicker{0%,100%{transform:translateX(-50%) scaleY(1);opacity:1}50%{transform:translateX(-50%) scaleY(.95);opacity:.9}}
+@keyframes pop-in{0%{transform:scale(0)}70%{transform:scale(1.1)}100%{transform:scale(1)}}
 
-  <button id="replay">Replay</button>
-</div>
+@keyframes hearts-move{to{transform:translateY(-100vh)}}
+.hearts-bg{height:3px;width:3px;background-color:var(--soft-pink);border-radius:50%;position:fixed;top:100vh;z-index:-1;animation:hearts-move 25s linear infinite;box-shadow:-20vw -5vh 0 0 var(--soft-pink),20vw -10vh 0 1px var(--bts-purple),-30vw -15vh 0 0 #fff,40vw -20vh 0 -1px var(--soft-pink),-10vw -25vh 0 1px #fff,15vw -30vh 0 0 var(--bts-purple),-45vw -35vh 0 1px var(--soft-pink),35vw -40vh 0 0 #fff,-25vw -50vh 0 0 #fff,10vw -55vh 0 -1px var(--bts-purple),-35vw -60vh 0 1px var(--soft-pink),25vw -65vh 0 0 var(--bts-purple),-5vw -70vh 0 1px #fff,45vw -75vh 0 -1px var(--soft-pink),-15vw -80vh 0 0 #fff,5vw -95vh 0 1px var(--bts-purple)}
 
-<script src="script.js"></script>
-</body>
-</html>
+.balloons{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.balloon{position:absolute;bottom:-120px;width:26px;height:34px;border-radius:50% 50% 45% 45%;background:#ffb3c7;animation:rise var(--dur,8s) linear infinite;transform:translateX(-50%);box-shadow:inset 0 8px 12px rgba(255,255,255,0.5)}
+.balloon:after{content:'';position:absolute;bottom:-10px;left:50%;width:2px;height:40px;background:rgba(0,0,0,0.15);transform:translateX(-50%)}
+@keyframes rise{0%{transform:translate(-50%,0) scale(0.9);opacity:0}10%{opacity:1}100%{transform:translate(-50%,-120vh) scale(1.05);opacity:1}}
+
+@media(max-width:768px){
+.birthday_inner__modal,.birthday_inner__stage{width:90%}
+h1{font-size:2rem}
+.stage1 img.intro{width:250px}
+.options{flex-direction:column;gap:15px}
+.slideshow img{width:110px;height:110px}
+.gift-container h1{font-size:2.2rem}
+}
+
+@media(max-width:430px){
+button{font-size:18px;padding:8px 18px}
+#music-control{top:10px;right:10px}
+.cakemake{margin-top:180px}
+}
