@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Happy Birthday Pihu 🎂</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+<div class="hearts-bg"></div>
+<audio id="bgm" loop>
+  <source src="happy-birthday.mp3" type="audio/mp3" />
+</audio>
+<div id="music-control">
+  <i class="fas fa-volume-up"></i>
+</div>
+<div class="gift-container">
+  <div class="gift">
+    <div class="gift-lid"></div>
+    <div class="gift-box"></div>
+  </div>
+  <h1>A Surprise for you, Pihu!</h1>
+  <p>Click the gift to open</p>
+</div>
+<div class="birthday" style="display:none;">
+  <div class="birthday_inner">
+    <div class="birthday_inner__modal">
+      <div class="modal_image">
+        <img src="images/pihu1.jpg" />
+      </div>
+      <h1></h1>
+      <p></p>
+      <button>Continue</button>
+    </div>
+    <div class="birthday_inner__stage stage1" style="display:block;">
+      <img class="intro" src="images/cake.png" />
+      <button class="start">Let’s bake a cake as sweet as your Birthday!</button>
+    </div>
+    <div class="birthday_inner__stage stage2">
+      <h1>The Recipe for Pihu</h1>
+      <h2>Mix in all the sweet moments and happy memories we share.</h2>
+      <div class="mix">
+        <div class="mix_bowl"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/bowl.png" /></div>
+        <div class="mix_spoon"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/spoon.png" /></div>
+      </div>
+      <button class="mixer">Mix it!</button>
+    </div>
+    <div class="birthday_inner__stage stage3">
+      <h1>Warmth & Wishes</h1>
+      <h2>Baking with all the love and warmth you bring into our lives.</h2>
+      <div class="oven"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/oven.png" /></div>
+      <div class="tin"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/tin.png" /></div>
+    </div>
+    <div class="birthday_inner__stage stage4">
+      <h1>Time to Add the Sparkle</h1>
+      <h2>Layer the cake with all your best qualities!</h2>
+      <div class="options">
+        <div class="sponges inactive">
+          <h3>Layers of...</h3>
+          <h5><span>0</span>/5</h5>
+          <div class="item"><div class="item_inner vanilla"></div><h4>Laughter</h4></div>
+          <div class="item"><div class="item_inner strawberry"></div><h4>Kindness</h4></div>
+          <div class="item"><div class="item_inner fruit"></div><h4>Adventure</h4></div>
+        </div>
+        <div class="fillings">
+          <h3>Fill with...</h3>
+          <h5><span>0</span>/6</h5>
+          <div class="item"><div class="item_inner jam"></div><h4>Love</h4></div>
+          <div class="item"><div class="item_inner cream"></div><h4>Joy</h4></div>
+          <div class="item"><div class="item_inner choc"></div><h4>Sweet Memories</h4></div>
+          <div class="item"><div class="item_inner lemon"></div><h4>Sunshine</h4></div>
+        </div>
+      </div>
+      <div class="cakemake"><div class="base"></div></div>
+      <div class="startagain">Start again</div>
+      <button class="add">Add the final touch!</button>
+    </div>
+  </div>
+</div>
+<div class="final_screen" style="display: none;">
+  <h1>Happy Birthday, Dearest Pihu!</h1>
+  <div class="balloons"></div>
+  <div class="slideshow">
+    <img src="images/pihu1.jpg" class="slide" style="display: none;"/>
+    <img src="images/pihu2.jpg" class="slide" style="display: none;"/>
+    <img src="images/pihu3.jpg" class="slide" style="display: none;"/>
+    <img src="images/pihu4.jpg" class="slide" style="display: none;"/>
+    <img src="images/pihu5.jpg" class="slide" style="display: none;"/>
+  </div>
+  <div class="final-message">
+    <h2>A little note for you...</h2>
+    <p>
+      Pihu, wishing you the happiest of birthdays!
+      Thank you for all the laughter, the support, and for just being you. 
+      May your day be as bright and wonderful as you are. I hope this year brings you new experiences, happiness, and the confidence to chase every goal. Enjoy your day. You deserve all the love and joy in the world. Love you always! Borahae! 💜
+    </p>
+  </div>
+  <button id="replay">Replay</button>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
