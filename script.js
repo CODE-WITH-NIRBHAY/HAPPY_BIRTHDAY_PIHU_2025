@@ -58,7 +58,7 @@ modal.find("p").text("It's the perfect mix of fun, love, and a little bit of cra
 modal.find("img").attr("src","images/pihu3.jpg")
 modal.css("transform","translateY(-50%) scale(1)")
 },500)
-setTimeout(()=>modal.css("transform","translateY(-50%) scale(0)"),3000)
+setTimeout(()=>modal.css("transform","translateY(-50%) scale(0)"),6000)
 setTimeout(()=>$(".stage3").fadeIn(),3300)
 }
 })
@@ -74,7 +74,7 @@ modal.find("p").html("Now, let's decorate it the same way you decorate everyone'
 modal.find("img").attr("src","images/pihu4.jpg")
 modal.css("transform","translateY(-50%) scale(1)")
 },500)
-setTimeout(()=>modal.css("transform","translateY(-50%) scale(0)"),3000)
+setTimeout(()=>modal.css("transform","translateY(-50%) scale(0)"),6000)
 setTimeout(()=>$(".stage4").fadeIn(),3300)
 }
 })
@@ -184,3 +184,4 @@ box.append(b)
 }
 }
 })
+
