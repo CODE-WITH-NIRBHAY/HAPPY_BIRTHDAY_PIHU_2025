@@ -24,7 +24,7 @@ $(this).html('<i class="fas fa-volume-mute"></i>')
 
 $(".start").click(()=>{
 modal.find("h1").text("To my amazing sister...")
-modal.find("p").text("You mean more to me than you'll ever know. Thank you for being you. Today, we celebrate you!")
+modal.find("p").text("You mean more than you'll ever know. Thank you for being you. Today, we celebrate your Birthday!")
 modal.find("img").attr("src","images/pihu2.jpg")
 modal.css("transform","translateY(-50%) scale(1)")
 })
@@ -54,7 +54,7 @@ if(mixtimes==5){
 $(".stage2").fadeOut(500)
 setTimeout(()=>{
 modal.find("h1").text("Perfectly Mixed!")
-modal.find("p").text("Just like our bond, it's the perfect mix of fun, love, and a little bit of craziness.")
+modal.find("p").text("It's the perfect mix of fun, love, and a little bit of craziness.")
 modal.find("img").attr("src","images/pihu3.jpg")
 modal.css("transform","translateY(-50%) scale(1)")
 },500)
